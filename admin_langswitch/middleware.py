@@ -2,7 +2,9 @@ from django.conf import settings
 from django.core import urlresolvers
 from django.http import HttpResponseRedirect
 from django.utils import translation
-
+from cms.middleware.multilingual import MultilingualURLMiddleware
+    
+    
 class CustomMultilingualURLMiddleware(MultilingualURLMiddleware, object):
     """
     Supplies additional method that redirects / to /pl /en /de etc.
@@ -11,7 +13,6 @@ class CustomMultilingualURLMiddleware(MultilingualURLMiddleware, object):
     Please take  a moment to examine/adapt the code, to make sure it does what you need.
     """
     
-    from cms.middleware.multilingual import MultilingualURLMiddleware
     
     def is_cms(self, request):
         try:
